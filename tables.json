@@ -1,0 +1,94 @@
+[
+  {
+    "name": "Staff",
+    "singularName": "Staff",
+    "referenceFieldName": "ID",
+    "fields": [
+      {
+        "name": "ID",
+        "type": "autoCounter",
+        "isRequired": true,
+        "isUnique": true
+      },
+      {
+        "name": "Staff ID",
+        "type": "autoCounter",
+        "isRequired": true,
+        "isUnique": true
+      },
+      {
+        "name": "Name",
+        "type": "text",
+        "isRequired": false,
+        "isUnique": false
+      },
+      {
+        "name": "User",
+        "type": "user",
+        "isRequired": false,
+        "isUnique": false
+      },
+      {
+        "name": "Courses",
+        "type": "child",
+        "isRequired": false,
+        "isUnique": false,
+        "properties": {
+          "relatedTableName": "Courses"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Courses",
+    "singularName": "Course",
+    "referenceFieldName": "Name",
+    "fields": [
+      {
+        "name": "Name",
+        "type": "text",
+        "isRequired": true,
+        "isUnique": true
+      },
+      {
+        "name": "Type",
+        "type": "list",
+        "isRequired": false,
+        "isUnique": false,
+        "properties": {
+          "items": [
+            {
+              "value": "Induction",
+              "color": "#FFBFBF"
+            },
+            {
+              "value": "Training",
+              "color": "#FFCAA7"
+            },
+            {
+              "value": "HR",
+              "color": "#D2FFA5"
+            },
+            {
+              "value": "Security",
+              "color": "#B5C1FF"
+            },
+            {
+              "value": "Engineering",
+              "color": "#FFA6D1"
+            }
+          ]
+        }
+      },
+      {
+        "name": "Staff",
+        "type": "parent",
+        "isRequired": false,
+        "isUnique": false,
+        "properties": {
+          "relatedTableName": "Staff"
+        }
+      }
+    ]
+  }
+]
